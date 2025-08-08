@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO აპლიკაცია</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-tasks"></i> TODO აპლიკაცია</h1>
+            <p class="subtitle">შექმენი და მართე შენი ამოცანები</p>
+        </header>
+
+        <div class="todo-form">
+            <div class="input-group">
+                <input type="text" id="todoInput" placeholder="დაამატე ახალი ამოცანა..." maxlength="100">
+                <input type="datetime-local" id="todoTime" class="time-input">
+                <div class="color-picker">
+                    <label for="todoColor">ფერი:</label>
+                    <select id="todoColor">
+                        <option value="#ff6b6b">წითელი</option>
+                        <option value="#4ecdc4">ციანი</option>
+                        <option value="#45b7d1">ლურჯი</option>
+                        <option value="#96ceb4">მწვანე</option>
+                        <option value="#feca57">ყვითელი</option>
+                        <option value="#ff9ff3">ვარდისფერი</option>
+                        <option value="#54a0ff">ლურჯი</option>
+                        <option value="#5f27cd">იისფერი</option>
+                    </select>
+                </div>
+                <button id="addTodo" class="add-btn">
+                    <i class="fas fa-plus"></i> დამატება
+                </button>
+            </div>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">ყველა</button>
+            <button class="filter-btn" data-filter="pending">მიმდინარე</button>
+            <button class="filter-btn" data-filter="completed">დასრულებული</button>
+        </div>
+
+        <div class="todo-stats">
+            <div class="stat">
+                <span class="stat-number" id="totalTodos">0</span>
+                <span class="stat-label">ყველა</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="pendingTodos">0</span>
+                <span class="stat-label">მიმდინარე</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="completedTodos">0</span>
+                <span class="stat-label">დასრულებული</span>
+            </div>
+        </div>
+
+        <div class="todo-list" id="todoList">
+            <!-- TODO items will be added here dynamically -->
+        </div>
+
+        <div class="empty-state" id="emptyState">
+            <i class="fas fa-clipboard-list"></i>
+            <h3>არ არის ამოცანები</h3>
+            <p>დაამატე პირველი ამოცანა ზემოთ ფორმის გამოყენებით</p>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>რედაქტირება</h3>
+                <button class="close-btn" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="editInput" placeholder="ამოცანის ტექსტი...">
+                <input type="datetime-local" id="editTime" class="time-input">
+                <div class="color-picker">
+                    <label for="editColor">ფერი:</label>
+                    <select id="editColor">
+                        <option value="#ff6b6b">წითელი</option>
+                        <option value="#4ecdc4">ციანი</option>
+                        <option value="#45b7d1">ლურჯი</option>
+                        <option value="#96ceb4">მწვანე</option>
+                        <option value="#feca57">ყვითელი</option>
+                        <option value="#ff9ff3">ვარდისფერი</option>
+                        <option value="#54a0ff">ლურჯი</option>
+                        <option value="#5f27cd">იისფერი</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelEdit">გაუქმება</button>
+                <button class="btn btn-primary" id="saveEdit">შენახვა</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
